@@ -12,7 +12,7 @@ const CartItem = ({ items }) => {
       <img
         width="160px"
         height="197px"
-        src={`http://127.0.0.1:8000/products/${items.product.imageCover}`}
+        src={`https://backendecommerce2.onrender.com/${items.product.imageCover}`}
         alt=""
         className="ps-3 ms-2 "
       />

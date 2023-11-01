@@ -8,7 +8,7 @@ function ProductCard({ items, favArr }) {
   const [, , handelFav, favImg] = ProductCardHook(items, favArr);
   // Assuming ${items.imageCover} contains the URL
   let imageUrl = `${items.imageCover}`;
-  const baseUrl = "http://127.0.0.1:8000/products";
+  const baseUrl = "https://backendecommerce2.onrender.com/api/v1/products";
 
   // Check if the URL contains the base URL
   if (imageUrl.startsWith(baseUrl)) {
@@ -38,7 +38,7 @@ function ProductCard({ items, favArr }) {
         </div>
         <Link to={`/product/${items._id}`} style={{ textDecoration: "none" }}>
           <img
-            src={`http://127.0.0.1:8000/products/${imageUrl}`}
+            src={`https://backendecommerce2.onrender.com/api/v1/products/${imageUrl}`}
             className="img-fluid product-thumbnail "
             alt="not found"
           />

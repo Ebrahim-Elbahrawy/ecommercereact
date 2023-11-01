@@ -10,7 +10,7 @@ const UserAllOrderCard = ({ order }) => {
           <img
             width="93px"
             height="120px"
-            src={`http://127.0.0.1:8000/products/${order.product.imageCover}`}
+            src={`https://backendecommerce2.onrender.com/api/v1/${order.product.imageCover}`}
             alt=""
           />
         </Col>
