@@ -8,13 +8,13 @@ function ProductCard({ items, favArr }) {
   const [, , handelFav, favImg] = ProductCardHook(items, favArr);
   // Assuming ${items.imageCover} contains the URL
   let imageUrl = `${items.imageCover}`;
-  const baseUrl = "https://backendecommerce2.onrender.com/api/v1/products/";
-
+  // const baseUrl = "https://backendecommerce2.onrender.com/api/v1/products/";
+console.log(imageUrl)
   // Check if the URL contains the base URL
-  if (imageUrl.startsWith(baseUrl)) {
-    // Remove the base URL from the image URL
-    imageUrl = imageUrl.substring(baseUrl.length);
-  }
+  // if (imageUrl.startsWith(baseUrl)) {
+  //   // Remove the base URL from the image URL
+  //   imageUrl = imageUrl.substring(baseUrl.length);
+  // }
 
   // Now imageUrl contains the modified URL without the base URL
 
