@@ -38,7 +38,7 @@ function ProductCard({ items, favArr }) {
         </div>
         <Link to={`/product/${items._id}`} style={{ textDecoration: "none" }}>
           <img
-            src={`https://backendecommerce2.onrender.com/api/v1/products/${imageUrl}`}
+            src={`${imageUrl}`}
             className="img-fluid product-thumbnail "
             alt="not found"
           />
