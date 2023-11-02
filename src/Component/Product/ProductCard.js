@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import rate from "../../images/rate.png";
 import { Link } from "react-router-dom";
@@ -6,15 +6,20 @@ import { ToastContainer } from "react-toastify";
 import ProductCardHook from "../../hook/products/product-card-hook";
 function ProductCard({ items, favArr }) {
   const [, , handelFav, favImg] = ProductCardHook(items, favArr);
-  // Assuming ${items.imageCover} contains the URL
-  let imageUrl = `${items.imageCover}`;
-  // const baseUrl = "https://backendecommerce2.onrender.com/api/v1/products/";
-console.log(imageUrl)
-  // Check if the URL contains the base URL
-  // if (imageUrl.startsWith(baseUrl)) {
-  //   // Remove the base URL from the image URL
-  //   imageUrl = imageUrl.substring(baseUrl.length);
-  // }
+  const baseUrl = "https://backendecommerce2.onrender.com/products/";
+
+  // Use a state variable to store imageUrl
+  const [imageUrl, setImageUrl] = useState(items.imageCover);
+  
+  useEffect(() => {
+    // Check if the URL contains the base URL
+    if (imageUrl && imageUrl.startsWith(baseUrl)) {
+      // Remove the base URL from the image URL
+      setImageUrl(imageUrl.substring(baseUrl.length));
+    }
+  }, [imageUrl]);
+
+ 
 
   // Now imageUrl contains the modified URL without the base URL
 
@@ -37,11 +42,15 @@ console.log(imageUrl)
           />
         </div>
         <Link to={`/product/${items._id}`} style={{ textDecoration: "none" }}>
-          <img
-            src={`${imageUrl}`}
-            className="img-fluid product-thumbnail "
-            alt="not found"
-          />
+        
+          
+             <img 
+             src={ baseUrl + imageUrl}
+             className="img-fluid product-thumbnail "
+             alt="not found"
+           />
+          
+          
           <h3 class="product-title">{`${items.title} `}</h3>
           <strong class="product-price">
             <div className="card-price">
