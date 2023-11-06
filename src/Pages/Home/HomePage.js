@@ -20,7 +20,7 @@ function HomePage() {
       <HomeCatagory />
 
       <ProductCardContainer
-        title="أحدث الازياء"
+        title="أحدث المنتجات "
         btntitle="المزيد"
         pathText="/product"
         items={items}
