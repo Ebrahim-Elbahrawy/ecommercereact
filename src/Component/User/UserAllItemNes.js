@@ -2,20 +2,14 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 // import mobile from '../../images/mobile.png'
 import UserAllOrderCard from "./UserAllOrderCard";
-const UserAllOrderItem = ({ orderItem }) => {
-  console.log(orderItem)
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "numeric", day: "numeric" }
-    return new Date(dateString).toLocaleDateString(undefined, options)
-}
-
+const UserAllItemNes = ({ item }) => {
   return (
     <div className="user-order mt-2">
-     <Row>
-                <div className="py-2 order-title">طلب رقم #{orderItem.id || 0} ...تم بتاريخ {formatDate(orderItem.createdAt)}</div>
-            </Row>
-      {orderItem.cartItem 
-        ? orderItem.cartItems.map((order, index) => {
+      <Row>
+        <div className="py-2 order-title">طلب رقم #{item.id}</div>
+      </Row>
+      {item.cartItems.length >= 1
+        ? item.cartItems.map((order, index) => {
             return <UserAllOrderCard order={order} key={index} />;
           })
         : null}
@@ -25,23 +19,23 @@ const UserAllOrderItem = ({ orderItem }) => {
           <div>
             <div className="d-inline">التوصيل</div>
             <div className="d-inline mx-2 stat">
-              {orderItem.isDelivered === false
+              {item.isDelivered === false
                 ? "قيد التنفيذ"
                 : "تم تسليم الاورد بنجاح"}
             </div>
             <div className="d-inline">الدفع</div>
             <div className="d-inline mx-2 stat">
-              {orderItem.isPaid === false ? " لم يتم " : " تم"}
+              {item.isPaid === false ? " لم يتم " : " تم"}
             </div>
             <div className="d-inline">طريقه الدفع</div>
             <div className="d-inline mx-2 stat">
-              {orderItem.isCash === false ? " فيزا" : " كاش"}
+              {item.isCash === false ? " فيزا" : " كاش"}
             </div>
           </div>
         </Col>
         <Col xs="12" className="d-flex justify-content-end">
           <div>
-            <div className="barnd-text">{orderItem.totalOrderPrice} جنيه</div>
+            <div className="barnd-text">{item.totalOrderPrice} جنيه</div>
           </div>
         </Col>
       </Row>
@@ -49,4 +43,4 @@ const UserAllOrderItem = ({ orderItem }) => {
   );
 };
 
-export default UserAllOrderItem;
+export default UserAllItemNes;

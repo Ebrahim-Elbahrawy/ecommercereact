@@ -1,8 +1,9 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import Pagination from "./../../Component/utility/Pagination";
-import UserAllOrderItem from "./UserAllOrderItem";
+
 import UserGetAllOrderHook from "../../hook/userProfile/user-get-all-order-hook";
+import UserAllItemNes from "./UserAllItemNes";
 
 const UserAllOrder = () => {
   const [userName, items, paggination, result, onPress] = UserGetAllOrderHook();
@@ -14,7 +15,7 @@ const UserAllOrder = () => {
       <Row className="justify-content-between">
         {items.length >= 1
           ? items.map((item, index) => {
-              return <UserAllOrderItem key={index} item={item} />;
+              return <UserAllItemNes key={index} item={item} />;
             })
           : null}
       </Row>

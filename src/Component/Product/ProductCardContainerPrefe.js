@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import SubTiltle from "../utility/SubTitle";
-import ProductCardHome from "./ProductCardHome";
+import ProductCard from "./ProductCard";
 import CardContainerHook from "../../hook/products/card-container-hook";
 
-function ProductCardContainer({ title, btntitle, pathText, items }) {
+function ProductCardContainerPrefe({ title, btntitle, pathText, items }) {
   const [favProd] = CardContainerHook();
   return (
     <Container>
@@ -12,7 +12,7 @@ function ProductCardContainer({ title, btntitle, pathText, items }) {
       <Row className="my-2 d-flex justify-content-start">
         {items
           ? items.map((items, index) => (
-              <ProductCardHome items={items} key={index} favArr={favProd} />
+              <ProductCard items={items} key={index} favArr={favProd} />
             ))
           : null}
       </Row>
@@ -20,4 +20,4 @@ function ProductCardContainer({ title, btntitle, pathText, items }) {
   );
 }
 
-export default ProductCardContainer;
+export default ProductCardContainerPrefe;

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProductFromWishList } from "./../../redux/action/wishListAction";
 import Spinner from "react-bootstrap/Spinner";
 import { useState } from "react";
-import ProductCardContainer from "../Product/ProductCardContainer";
+import ProductCardContainerPrefe from "../Product/ProductCardContainerPrefe";
 const UserFavoriteProduct = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ const UserFavoriteProduct = () => {
         <>
           <div className="admin-content-text pb-4">قائمة المفضلة</div>
           <Row className="justify-content-start">
-            <ProductCardContainer
+            <ProductCardContainerPrefe
               title="منتجاتك المفضلة "
               btntitle=""
               pathText=""

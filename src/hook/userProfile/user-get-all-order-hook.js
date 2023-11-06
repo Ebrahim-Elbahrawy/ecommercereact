@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useState } from "react";
-import { getAllOrderUser } from "../../redux/action/orderAction";
+import { getAllOrders } from "../../redux/action/orderAction";
 
 function UserGetAllOrderHook() {
   const [loading, setLoading] = useState(true);
@@ -19,18 +19,20 @@ function UserGetAllOrderHook() {
   useEffect(() => {
     const get = async () => {
       setLoading(true);
-      await dispatch(getAllOrderUser("", 5));
+      await dispatch(getAllOrders("", 5));
     };
     get();
     setLoading(false);
   }, []);
 
-  const resOrder = useSelector((state) => state.orderReducer.allOrder);
-
+  const resOrder = useSelector((state) => state.orderReducer.getAllOrders);
+if(resOrder) {
+  console.log(resOrder)
+}
   const onPress = async (page) => {
     const get = async () => {
       setLoading(true);
-      await dispatch(getAllOrderUser(page, 5));
+      await dispatch(getAllOrders(page, 5));
     };
     get();
     setLoading(false);
