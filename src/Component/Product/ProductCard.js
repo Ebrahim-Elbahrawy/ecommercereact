@@ -11,13 +11,13 @@ function ProductCard({ items, favArr }) {
   // Use a state variable to store imageUrl
   const [imageUrl, setImageUrl] = useState(items.imageCover);
   
-  useEffect(() => {
+  
     // Check if the URL contains the base URL
     if (imageUrl && imageUrl.startsWith(baseUrl)) {
       // Remove the base URL from the image URL
       setImageUrl(imageUrl.substring(baseUrl.length));
     }
-  }, []);
+
 
  
 
