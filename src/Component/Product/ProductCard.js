@@ -17,7 +17,7 @@ function ProductCard({ items, favArr }) {
       // Remove the base URL from the image URL
       setImageUrl(imageUrl.substring(baseUrl.length));
     }
-  }, [imageUrl]);
+  }, []);
 
  
 
